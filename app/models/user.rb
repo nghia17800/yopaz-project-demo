@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   attr_writer :login
 
+  has_many :messages
+  has_many :chatrooms, through: :messages
+
   validates :user_name, :presence => true, :uniqueness => { :case_sensitive => false }
 
   def login
